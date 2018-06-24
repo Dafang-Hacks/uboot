@@ -44,8 +44,7 @@ all:	$(obj)fw_printenv
 
 # Some files complain if compiled with -pedantic, use HOSTCFLAGS_NOPED
 $(obj)fw_printenv:	$(HOSTSRCS) $(HEADERS)
-	$(HOSTCC) $(HOSTCFLAGS_NOPED) $(HOSTLDFLAGS) -o $@ $(HOSTSRCS)
-	$(HOSTSTRIP) $@
+	mips-linux-gnu-gcc $(HOSTCFLAGS_NOPED) -muclibc -O2 $(HOSTLDFLAGS) -o $@ $(HOSTSRCS)
 
 clean:
 	rm -f $(obj)fw_printenv

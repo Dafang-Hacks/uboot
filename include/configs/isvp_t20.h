@@ -136,7 +136,7 @@
 #endif
 
 #ifdef CONFIG_SFC_NOR
-	#define CONFIG_BOOTCOMMAND "sdupdate; sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000"
+	#define CONFIG_BOOTCOMMAND "gpio clear 48; sdupdate; sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000"
 #endif /* CONFIG_SFC_NOR */
 
 /**

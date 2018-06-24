@@ -57,7 +57,7 @@ static int do_gpio(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 		goto show_usage;
 
 	/* grab the pin before we tweak it */
-	if (gpio_request(gpio, "cmd_gpio")) {
+	if (gpio_request(gpio, "cmd_gpio") != gpio) {
 		printf("gpio: requesting pin %u failed\n", gpio);
 		return -1;
 	}
@@ -71,7 +71,7 @@ static int do_gpio(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 			case GPIO_SET:    value = 1; break;
 			case GPIO_CLEAR:  value = 0; break;
 			case GPIO_TOGGLE: value = !gpio_get_value(gpio); break;
-			default:          goto show_usage;
+			default:      ĥ    goto show_usage;
 		}
 		gpio_direction_output(gpio, value);
 	}

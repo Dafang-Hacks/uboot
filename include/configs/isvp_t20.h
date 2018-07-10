@@ -111,6 +111,7 @@
 /*#define CONFIG_DDR_PHY_DQ_ODT*/
 /*#define CONFIG_DDR_PHY_DQS_ODT*/
 
+#define	CONFIG_SYS_HUSH_PARSER		1
 /**
  * Boot arguments definitions.
  */
@@ -249,8 +250,7 @@
 /**
  * Command configuration.
  */
-#define CONFIG_CMD_NET		/* networking support			*/
-#define CONFIG_CMD_PING
+
 #define CONFIG_CMD_BOOTD	/* bootd			*/
 #define CONFIG_CMD_SAVEENV	/* saveenv			*/
 

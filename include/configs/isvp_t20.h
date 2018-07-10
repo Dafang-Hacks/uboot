@@ -144,9 +144,9 @@
     		"if fatload mmc 0 0x80600000 uEnv.txt; then " \
     			"echo Booting from microsd ...; " \
     			"env import -t 0x80600000 ${filesize};" \
-    			"boot " \
+    			"boot;" \
     		"else " \
-    			"sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000" \
+    			"sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000;" \
     		"fi;" \
     	"fi"
 

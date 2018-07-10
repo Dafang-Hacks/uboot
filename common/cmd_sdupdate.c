@@ -32,10 +32,10 @@
 #endif	/* AU_DEBUG */
 
 /* possible names of files on the medium. */
-#define AU_UBOOT	"uboot.bin"
-#define AU_KERNEL	"kernel.bin"
-#define AU_ROOTFS	"rootfs.bin"
-#define AU_FW		"fullflash.bin"
+#define AU_UBOOT	"flash-uboot.bin"
+#define AU_KERNEL	"flash-kernel.bin"
+#define AU_ROOTFS	"flash-rootfs.bin"
+#define AU_FW		"flash-full.bin"
 
 struct flash_layout {
 	long start;

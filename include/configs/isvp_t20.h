@@ -136,6 +136,8 @@
 #define CONFIG_BOOTCOMMAND "mmc read 0x80600000 0x1800 0x3000; bootm 0x80600000"
 #endif
 
+#define CONFIG_SYS_PROMPT	"U-Boot> "
+
 #ifdef CONFIG_SFC_NOR
 
 	#define CONFIG_BOOTCOMMAND \

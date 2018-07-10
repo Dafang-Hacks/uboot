@@ -136,7 +136,21 @@
 #endif
 
 #ifdef CONFIG_SFC_NOR
-	#define CONFIG_BOOTCOMMAND "gpio clear 48; sdupdate; sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000"
+
+	#define CONFIG_BOOTCOMMAND \
+    	"gpio clear 48;" \
+    	"sdupdate;" \
+    	"if mmc rescan; then " \
+    		"if fatload mmc 0 0x80600000 uEnv.txt; then " \
+    			"echo Booting from microsd ...; " \
+    			"env import -t 0x80600000 ${filesize};" \
+    			"boot " \
+    		"else " \
+    			"sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000" \
+    		"fi;" \
+    	"fi"
+
+
 #endif /* CONFIG_SFC_NOR */
 
 /**

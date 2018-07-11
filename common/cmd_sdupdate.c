@@ -135,7 +135,7 @@ static int au_check_header_valid(int idx, long nbytes)
 
 	hdr = (image_header_t *)LOAD_ADDR;
 	/* check the easy ones first */
-#if 0
+#if 1
 	#define CHECK_VALID_DEBUG
 #else
 	#undef CHECK_VALID_DEBUG

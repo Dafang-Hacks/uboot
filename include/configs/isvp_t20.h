@@ -152,9 +152,9 @@
     			"env import -t 0x80600000 ${filesize};" \
     			"boot;" \
     	    "fi;" \
-        "else " \
-            "sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000;" \
-        "fi;"
+        "fi;" \
+        "sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000;" \
+
 
 
 #endif /* CONFIG_SFC_NOR */

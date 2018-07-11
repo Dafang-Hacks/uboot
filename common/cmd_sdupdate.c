@@ -444,7 +444,8 @@ int do_auto_update(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	 */
 	if (1 == state) {
 		/*env_crc_update();*/
-		saveenv();
+		// Do not save the Env to Flash, because it may be corrupt. U-Boot will default back to normal as soon as you flash it back.
+		//saveenv();
 	}
 
 	return 0;

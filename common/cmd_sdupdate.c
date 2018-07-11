@@ -135,18 +135,13 @@ static int au_check_header_valid(int idx, long nbytes)
 
 	hdr = (image_header_t *)LOAD_ADDR;
 	/* check the easy ones first */
-#if 1
-	#define CHECK_VALID_DEBUG
-#else
-	#undef CHECK_VALID_DEBUG
-#endif
 
-#ifdef CHECK_VALID_DEBUG
+
 	printf("\nmagic %#x %#x\n", ntohl(hdr->ih_magic), IH_MAGIC);
 	printf("arch %#x %#x\n", hdr->ih_arch, IH_ARCH_MIPS);
 	printf("size %#x %#lx\n", ntohl(hdr->ih_size), nbytes);
 	printf("type %#x %#x\n", hdr->ih_type, IH_TYPE_FIRMWARE);
-#endif
+
 	if (nbytes < sizeof(*hdr)) {
 		printf("Image %s bad header SIZE\n", aufile[idx]);
 		return -1;

@@ -276,7 +276,7 @@
 #define CONFIG_CMD_GPIO
 #define CONFIG_LOCALVERSION "DafangHacksV1.0"
 
-
+#define CONFIG_CMD_EXT4
 
 /*#define CONFIG_CMD_I2C*/
 

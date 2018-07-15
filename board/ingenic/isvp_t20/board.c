@@ -67,6 +67,27 @@ int misc_init_r(void)
 #endif
 	/* used for usb_dete */
 	/*gpio_set_pull_dir(GPIO_PB(22), 1);*/
+
+    printf("Setting yellow_gpio:\n");
+    do_gpio("cleaer 38");
+	printf("Setting blue_gpio:\n");
+    do_gpio("clear 39");
+    printf("Setting night_gpios:\n");
+    do_gpio("clear 81");
+    do_gpio("clear 49");
+    do_gpio("clear 25");
+    printf("Setting USB enable:\n");
+    do_gpio("set 47");
+    printf("Setting Speaker enable:\n");
+    do_gpio("set 63");
+    printf("Setting Enable SDCARD:\n");
+	do_gpio("set 43");
+	do_gpio("clear 48");
+	printf("Running SDupdate....\n");
+
+
+
+
 	return 0;
 }
 

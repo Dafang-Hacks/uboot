@@ -30,6 +30,8 @@
 #include <asm/arch/mmc.h>
 #include <asm/arch/clk.h>
 #include <power/d2041_core.h>
+#include <command.h>
+
 
 extern int jz_net_initialize(bd_t *bis);
 struct cgu_clk_src cgu_clk_src[] = {
@@ -68,22 +70,23 @@ int misc_init_r(void)
 	/* used for usb_dete */
 	/*gpio_set_pull_dir(GPIO_PB(22), 1);*/
 
-    printf("Setting yellow_gpio:\n");
-    do_gpio("cleaer 38");
-	printf("Setting blue_gpio:\n");
-    do_gpio("clear 39");
+    printf("Setting yellow_gpio to off:\n");
+    run_command("gpio set 38",0);
+	printf("Setting blue_gpio to off:\n");
+    run_command("gpio set 39",0);
     printf("Setting night_gpios:\n");
-    do_gpio("clear 81");
-    do_gpio("clear 49");
-    do_gpio("clear 25");
+    run_command("gpio clear 81",0);
+    run_command("gpio clear 49",0);
+    run_command("gpio clear 25",0);
     printf("Setting USB enable:\n");
-    do_gpio("set 47");
+    run_command("gpio set 47",0);
     printf("Setting Speaker enable:\n");
-    do_gpio("set 63");
+    run_command("gpio set 63",0);
     printf("Setting Enable SDCARD:\n");
-	do_gpio("set 43");
-	do_gpio("clear 48");
+	run_command("gpio set 43",0);
+	run_command("gpio clear 48",0);
 	printf("Running SDupdate....\n");
+	run_command("sdupdate",0);
 
 
 

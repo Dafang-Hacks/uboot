@@ -5,4 +5,4 @@ export PATH=$TOOLCHAIN:$PATH
 make distclean
 make dafang_64mb_config
 make
-cp u-boot-with-spl.bin dafang_64mb_v1.bin
+cp u-boot-with-spl.bin compiled_bootloader/dafang_64mb_v1.bin

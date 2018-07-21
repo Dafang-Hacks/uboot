@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 TOOLCHAIN=$(pwd)/../toolchain/bin
 export PATH=$TOOLCHAIN:$PATH
-
 make distclean
 make xiaofang1s_64mb_config
 make

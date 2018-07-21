@@ -82,9 +82,18 @@ int misc_init_r(void)
     run_command("gpio set 47",0);
     printf("Setting Speaker enable:\n");
     run_command("gpio set 63",0);
-    printf("Setting Enable SDCARD:\n");
-	run_command("gpio set 43",0);
-	run_command("gpio clear 48",0);
+
+    #ifdef CONFIG_INVERSE_SDCARD_ENABLE
+        printf("Setting Enable SDCARD(Xiaofang):\n");
+        run_command("gpio clear 43",0);
+    #else
+        printf("Setting Enable SDCARD:\n");
+    	run_command("gpio set 43",0);
+    	run_command("gpio clear 48",0);
+    #endif
+
+
+
 	printf("Running SDupdate....\n");
 	run_command("sdupdate",0);
 

@@ -147,7 +147,7 @@ fi
 #	echo "Error: kernelrelease not valid - run 'make prepare' to update it"
 #	exit 1
 #fi
-CONFIG_LOCALVERSION=" DafangHacksV1.3"
+CONFIG_LOCALVERSION=
 CONFIG_LOCALVERSION_AUTO=y
 
 # localversion* files in the build and source directory

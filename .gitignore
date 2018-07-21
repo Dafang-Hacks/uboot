@@ -15,6 +15,7 @@
 *.swp
 *.patch
 *.bin
+!compiled_bootloader/*.bin
 *.cfgtmp
 
 # Build tree

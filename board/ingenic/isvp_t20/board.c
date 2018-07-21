@@ -83,8 +83,8 @@ int misc_init_r(void)
     printf("Setting Speaker enable:\n");
     run_command("gpio set 63",0);
 
-    #ifdef CONFIG_INVERSE_SDCARD_ENABLE
-        printf("Setting Enable SDCARD(Xiaofang):\n");
+    #ifdef CONFIG_BOARD_NAME_XIAOFANG
+        printf("Setting Enable SDCARD:\n");
         run_command("gpio clear 43",0);
     #else
         printf("Setting Enable SDCARD:\n");

@@ -127,7 +127,20 @@ int spl_start_uboot(void)
 /* U-Boot common routines */
 int checkboard(void)
 {
-	puts("Board: ISVP (Ingenic XBurst T20 SoC)\n");
+
+
+#if defined(CONFIG_BOARD_NAME_DAFANG64)
+#define BOARD_NAME	"Dafang 64MB"
+#elif defined(CONFIG_BOARD_NAME_DAFANG128)
+#define BOARD_NAME	"Dafang 128MB"
+#elif defined(CONFIG_BOARD_NAME_XIAOFANG)
+#define BOARD_NAME	"Xiaofang 1S"
+#else
+#error "No board variant defined!"
+#endif
+
+    puts("Bootloader-Version: Dafanghacks v1\n");
+	puts("Board: "BOARD_NAME" (Ingenic XBurst T20 SoC)\n");
 	return 0;
 }
 

@@ -83,13 +83,14 @@ int misc_init_r(void)
     printf("Setting Speaker enable:\n");
     run_command("gpio set 63",0);
 
+    printf("Setting Enable SDCARD:\n");
+    run_command("gpio set 43",0);
+    run_command("gpio clear 48",0);
     #ifdef CONFIG_BOARD_NAME_XIAOFANG
-        printf("Setting Enable SDCARD:\n");
+        printf("Sleep one second:\n");
+        run_command("sleep 1",0);
+        printf("Sleep done:\n");
         run_command("gpio clear 43",0);
-    #else
-        printf("Setting Enable SDCARD:\n");
-    	run_command("gpio set 43",0);
-    	run_command("gpio clear 48",0);
     #endif
 
 
@@ -139,7 +140,7 @@ int checkboard(void)
 #error "No board variant defined!"
 #endif
 
-    puts("Bootloader-Version: Dafanghacks v1\n");
+    puts("Bootloader-Version: Dafanghacks v2\n");
 	puts("Board: "BOARD_NAME" (Ingenic XBurst T20 SoC)\n");
 	return 0;
 }

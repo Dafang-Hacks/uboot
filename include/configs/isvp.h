@@ -114,8 +114,9 @@
 #ifdef CONFIG_SPL_MMC_SUPPORT
 	#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc root=/dev/mmcblk0p2 rw rootdelay=1"
 #elif CONFIG_SFC_NOR
-	#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2560k(kernel),2048k(root),-(appfs)"
+	#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2176k(kernel),3328k(root),2304k(system),64k(factory),64k(param) quiet"
 #endif
+
 
 /**
  * Boot command definitions.

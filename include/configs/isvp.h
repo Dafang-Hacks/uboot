@@ -105,6 +105,7 @@
 /*#define CONFIG_DDR_PHY_DQ_ODT*/
 /*#define CONFIG_DDR_PHY_DQS_ODT*/
 
+#define	CONFIG_SYS_HUSH_PARSER		1
 /**
  * Boot arguments definitions.
  */
@@ -125,8 +126,38 @@
 #define CONFIG_BOOTCOMMAND "mmc read 0x80600000 0x1800 0x3000; bootm 0x80600000"
 #endif
 
+#define CONFIG_SYS_PROMPT	"U-Boot> "
+#define CONFIG_VERSION_VARIABLE	1
+
+
 #ifdef CONFIG_SFC_NOR
-	#define CONFIG_BOOTCOMMAND "sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000"
+
+	#define CONFIG_BOOTCOMMAND \
+    	"if mmc rescan; then " \
+    	    "echo MMC Found; " \
+    	    "echo Trying to find FAT uEnv.txt; " \
+    		"if fatload mmc 0:1 0x80600000 uEnv.txt; then " \
+    			"echo uEnv found - Booting from microsd ...; " \
+    			"gpio clear 39;"\
+    			"env import -t 0x80600000 ${filesize};" \
+    			"boot;" \
+    	    "fi;" \
+    	    "echo Trying to find EXT3 uEnv.txt; " \
+            "if ext4load mmc 0:1 0x80600000 uEnv.txt; then " \
+                "echo uEnv found - Booting from microsd ...; " \
+                "gpio clear 39;"\
+                "env import -t 0x80600000 ${filesize};" \
+                "boot;" \
+            "fi;" \
+        "else " \
+            "echo MMC not found....; " \
+        "fi;" \
+        "echo Booting from NAND....; " \
+        "gpio clear 38;"\
+        "sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000;" \
+
+
+
 #endif /* CONFIG_SFC_NOR */
 
 /**
@@ -225,8 +256,7 @@
 /**
  * Command configuration.
  */
-#define CONFIG_CMD_NET		/* networking support			*/
-#define CONFIG_CMD_PING
+
 #define CONFIG_CMD_BOOTD	/* bootd			*/
 #define CONFIG_CMD_SAVEENV	/* saveenv			*/
 
@@ -243,9 +273,14 @@
 #define CONFIG_CMD_GETTIME
 #define CONFIG_CMDLINE_EDITING
 #define CONFIG_AUTO_COMPLETE
+#define CONFIG_CMD_GPIO
+#define CONFIG_LOCALVERSION "DafangHacksV1.0"
+
+#define CONFIG_CMD_EXT4
+
 /*#define CONFIG_CMD_I2C*/
 
-/*#define CONFIG_AUTO_UPDATE			1*/
+#define CONFIG_AUTO_UPDATE			1
 #ifdef CONFIG_AUTO_UPDATE
 	#define CONFIG_CMD_SDUPDATE		1
 #endif
@@ -275,7 +310,6 @@
 
 #define CONFIG_SYS_MAXARGS 64
 #define CONFIG_SYS_LONGHELP
-#define CONFIG_SYS_PROMPT CONFIG_SYS_BOARD "# "
 #define CONFIG_SYS_CBSIZE 1024 /* Console I/O Buffer Size */
 #define CONFIG_SYS_PBSIZE (CONFIG_SYS_CBSIZE + sizeof(CONFIG_SYS_PROMPT) + 16)
 

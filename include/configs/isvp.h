@@ -139,14 +139,12 @@
     	    "echo Trying to find FAT uEnv.txt; " \
     		"if fatload mmc 0:1 0x80600000 uEnv.txt; then " \
     			"echo uEnv found - Booting from microsd ...; " \
-    			"gpio clear 39;"\
     			"env import -t 0x80600000 ${filesize};" \
     			"boot;" \
     	    "fi;" \
     	    "echo Trying to find EXT3 uEnv.txt; " \
             "if ext4load mmc 0:1 0x80600000 uEnv.txt; then " \
                 "echo uEnv found - Booting from microsd ...; " \
-                "gpio clear 39;"\
                 "env import -t 0x80600000 ${filesize};" \
                 "boot;" \
             "fi;" \
@@ -154,7 +152,6 @@
             "echo MMC not found....; " \
         "fi;" \
         "echo Booting from NAND....; " \
-        "gpio clear 38;"\
         "sf probe;sf read 0x80600000 0x40000 0x280000; bootm 0x80600000;" \
 
 

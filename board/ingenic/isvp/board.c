@@ -70,28 +70,7 @@ int misc_init_r(void)
 	/* used for usb_dete */
 	/*gpio_set_pull_dir(GPIO_PB(22), 1);*/
 
-    printf("Setting yellow_gpio to off:\n");
-    run_command("gpio set 38",0);
-	printf("Setting blue_gpio to off:\n");
-    run_command("gpio set 39",0);
-    printf("Setting night_gpios:\n");
-    run_command("gpio clear 81",0);
-    run_command("gpio clear 49",0);
-    run_command("gpio clear 25",0);
-    printf("Setting USB enable:\n");
-    run_command("gpio set 47",0);
-    printf("Setting Speaker enable:\n");
-    run_command("gpio set 63",0);
 
-    printf("Setting Enable SDCARD:\n");
-    run_command("gpio set 43",0);
-    run_command("gpio clear 48",0);
-    #ifdef CONFIG_BOARD_NAME_XIAOFANG
-        printf("Sleep one second:\n");
-        run_command("sleep 1",0);
-        printf("Sleep done:\n");
-        run_command("gpio clear 43",0);
-    #endif
 
 
 

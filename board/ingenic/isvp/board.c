@@ -110,7 +110,7 @@ int checkboard(void)
 
 
 #define BOARD_NAME	"Sannce"
-    puts("Bootloader-Version: Dafanghacks v2\n");
+    puts("Bootloader-Version: Dafanghacks v1\n");
 	puts("Board: ISVP (Ingenic XBurst T10 SoC)\n");
 	return 0;
 }

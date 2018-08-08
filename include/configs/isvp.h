@@ -142,6 +142,12 @@
     			"env import -t 0x80600000 ${filesize};" \
     			"boot;" \
     	    "fi;" \
+            "echo Trying to find EXT3 uEnv_sannce.txt; " \
+            "if ext4load mmc 0:1 0x80600000 uEnv_sannce.txt; then " \
+                "echo uEnv found - Booting from microsd ...; " \
+                "env import -t 0x80600000 ${filesize};" \
+                "boot;" \
+            "fi;" \
     	    "echo Trying to find EXT3 uEnv.txt; " \
             "if ext4load mmc 0:1 0x80600000 uEnv.txt; then " \
                 "echo uEnv found - Booting from microsd ...; " \

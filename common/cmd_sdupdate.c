@@ -52,12 +52,55 @@ struct medium_interface {
 /* layout of the FLASH. ST = start address, ND = end address. */
 #define AU_FL_UBOOT_ST	0x0
 #define AU_FL_UBOOT_ND	0x40000
+
+
+#if defined(CONFIG_BOARD_NAME_SANNCE)
+/*
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "boot"
+mtd1: 00220000 00010000 "kernel"
+mtd2: 00340000 00010000 "root"
+mtd3: 00240000 00010000 "system"
+mtd4: 00010000 00010000 "factory"
+mtd5: 00010000 00010000 "param"
+*/
+#define AU_FL_KERNEL_ST		0x40000
+#define AU_FL_KERNEL_ND		0x260000
+#define AU_FL_ROOTFS_ST		0x260000
+#define AU_FL_ROOTFS_ND		0x600000
+#define AU_FL_FW_ST			0x000000
+#define AU_FL_FW_ND			0x600000
+
+#elif defined(CONFIG_BOARD_NAME_DIGOO)
+/*
+cat /proc/mtd
+dev: size erasesize name
+mtd0: 00040000 00010000 "boot"
+mtd1: 00220000 00010000 "kernel"
+mtd2: 00380000 00010000 "rootfs"
+mtd3: 00220000 00010000 "system"
+*/
+
+#define AU_FL_KERNEL_ST		0x40000
+#define AU_FL_KERNEL_ND		0x240000
+#define AU_FL_ROOTFS_ST		0x240000
+#define AU_FL_ROOTFS_ND		0x640000
+#define AU_FL_FW_ST			0x000000
+#define AU_FL_FW_ND			0x640000
+
+#else
+// All other Devices:
 #define AU_FL_KERNEL_ST		0x40000
 #define AU_FL_KERNEL_ND		0x240000
 #define AU_FL_ROOTFS_ST		0x240000
 #define AU_FL_ROOTFS_ND		0x590000
 #define AU_FL_FW_ST			0x000000
 #define AU_FL_FW_ND			0x590000
+#endif
+
+
+
+
 
 static int au_stor_curr_dev; /* current device */
 

@@ -111,11 +111,23 @@
  */
 #define BOOTARGS_COMMON "console=ttyS1,115200n8 mem=39M@0x0 ispmem=5M@0x2700000 rmem=20M@0x2c00000"
 
-#ifdef CONFIG_SPL_MMC_SUPPORT
-	#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc root=/dev/mmcblk0p2 rw rootdelay=1"
-#elif CONFIG_SFC_NOR
-	#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2176k(kernel),3328k(root),2304k(system),64k(factory),64k(param) quiet"
+
+#if defined(CONFIG_BOARD_NAME_SANNCE)
+#define BOARD_NAME	"Sannce I21AG"
+#define UENV_FILE	"uEnv_sannce.txt"
+#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2176k(kernel),3328k(root),2304k(system),64k(factory),64k(param) quiet"
+
+#elif defined(CONFIG_BOARD_NAME_DIGOO)
+#define BOARD_NAME	"Digoo BB-M2"
+#define UENV_FILE	"uEnv_digoo.txt"
+#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2176k(kernel),3584k(rootfs),2176k(system) quiet"
+
+
+#else
+#error "No board variant defined!"
 #endif
+
+
 
 
 /**
@@ -130,15 +142,7 @@
 #define CONFIG_SYS_PROMPT	"U-Boot> "
 #define CONFIG_VERSION_VARIABLE	1
 
-#if defined(CONFIG_BOARD_NAME_SANNCE)
-#define BOARD_NAME	"Sannce I21AG"
-#define UENV_FILE	"uEnv_sannce.txt"
-#elif defined(CONFIG_BOARD_NAME_DIGOO)
-#define BOARD_NAME	"Digoo BB-M2"
-#define UENV_FILE	"uEnv_digoo.txt"
-#else
-#error "No board variant defined!"
-#endif
+
 
 
 

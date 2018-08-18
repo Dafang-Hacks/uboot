@@ -130,6 +130,17 @@
 #define CONFIG_SYS_PROMPT	"U-Boot> "
 #define CONFIG_VERSION_VARIABLE	1
 
+#if defined(CONFIG_BOARD_NAME_SANNCE)
+#define BOARD_NAME	"Sannce I21AG"
+#define UENV_FILE	"uEnv_sannce.txt"
+#elif defined(CONFIG_BOARD_NAME_DIGOO)
+#define BOARD_NAME	"Digoo BB-M2"
+#define UENV_FILE	"uEnv_digoo.txt"
+#else
+#error "No board variant defined!"
+#endif
+
+
 
 #ifdef CONFIG_SFC_NOR
 
@@ -142,7 +153,7 @@
     			"env import -t 0x80600000 ${filesize};" \
     			"boot;" \
     	    "fi;" \
-            "echo Trying to find EXT3 uEnv_sannce.txt; " \
+            "echo Trying to find EXT3 "UENV_FILE";" \
             "if ext4load mmc 0:1 0x80600000 uEnv_sannce.txt; then " \
                 "echo uEnv found - Booting from microsd ...; " \
                 "env import -t 0x80600000 ${filesize};" \
@@ -163,6 +174,8 @@
 
 
 #endif /* CONFIG_SFC_NOR */
+
+
 
 /**
  * Drivers configuration.

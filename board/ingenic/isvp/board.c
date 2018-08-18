@@ -109,13 +109,6 @@ int checkboard(void)
 {
 
 
-#if defined(CONFIG_BOARD_NAME_SANNCE)
-#define BOARD_NAME	"Sannce I21AG"
-#elif defined(CONFIG_BOARD_NAME_DIGOO)
-#define BOARD_NAME	"Digoo BB-M2"
-#else
-#error "No board variant defined!"
-#endif
 
 
 

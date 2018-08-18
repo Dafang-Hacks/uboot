@@ -54,6 +54,8 @@ struct medium_interface {
 #define AU_FL_UBOOT_ND	0x40000
 
 
+
+
 #if defined(CONFIG_BOARD_NAME_SANNCE)
 /*
 dev:    size   erasesize  name
@@ -89,6 +91,7 @@ mtd3: 00220000 00010000 "system"
 #define AU_FL_FW_ND			0x640000
 
 #else
+
 // All other Devices:
 #define AU_FL_KERNEL_ST		0x40000
 #define AU_FL_KERNEL_ND		0x240000

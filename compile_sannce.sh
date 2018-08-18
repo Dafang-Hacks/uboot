@@ -4,4 +4,4 @@ export PATH=$TOOLCHAIN:$PATH
 make distclean
 make sannce_config
 make
-cp u-boot-with-spl.bin compiled_bootloader/sannce_v1.bin
+cp u-boot-with-spl.bin compiled_bootloader/sannce_v2.bin

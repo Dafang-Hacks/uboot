@@ -112,7 +112,7 @@ int checkboard(void)
 
 
 
-    puts("Bootloader-Version: Dafanghacks v1\n");
+    puts("Bootloader-Version: Dafanghacks v2\n");
     puts("Board: "BOARD_NAME" (Ingenic XBurst T10 SoC)\n");
 
 	return 0;

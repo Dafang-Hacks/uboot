@@ -154,6 +154,7 @@ static int au_check_cksum_valid(int idx, long nbytes)
 
 	if (nbytes != (sizeof(*hdr) + ntohl(hdr->ih_size))) {
 		printf("Image %s bad total SIZE\n", aufile[idx]);
+		printf("Image Size should be %d , but is %d\n", (sizeof(*hdr) + ntohl(hdr->ih_size)) , nbytes);
 		return -1;
 	}
 	/* check the data CRC */

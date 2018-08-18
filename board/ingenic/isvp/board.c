@@ -109,9 +109,19 @@ int checkboard(void)
 {
 
 
-#define BOARD_NAME	"Sannce"
+#if defined(CONFIG_BOARD_NAME_SANNCE)
+#define BOARD_NAME	"Sannce I21AG"
+#elif defined(CONFIG_BOARD_NAME_DIGOO)
+#define BOARD_NAME	"Digoo BB-M2"
+#else
+#error "No board variant defined!"
+#endif
+
+
+
     puts("Bootloader-Version: Dafanghacks v1\n");
-	puts("Board: ISVP (Ingenic XBurst T10 SoC)\n");
+    puts("Board: "BOARD_NAME" (Ingenic XBurst T10 SoC)\n");
+
 	return 0;
 }
 

@@ -141,6 +141,20 @@
 #define CONFIG_VERSION_VARIABLE	1
 
 
+#if defined(CONFIG_BOARD_NAME_DAFANG128)
+#define BOARD_NAME	"Dafang 128MB"
+#define UENV_FILE	"uEnv_dafang128.txt"
+
+#elif defined(CONFIG_BOARD_NAME_DAFANG64)
+#define BOARD_NAME	"Dafang 64MB"
+#define UENV_FILE	"uEnv_dafang64.txt"
+
+#else
+#error "No board variant defined!"
+#endif
+
+
+
 #ifdef CONFIG_SFC_NOR
 
 	#define CONFIG_BOOTCOMMAND \
@@ -153,10 +167,16 @@
     			"env import -t 0x80600000 ${filesize};" \
     			"boot;" \
     	    "fi;" \
-    	    "echo Trying to find EXT3 uEnv.txt; " \
+            "echo Trying to find EXT3 uEnv.txt; " \
             "if ext4load mmc 0:1 0x80600000 uEnv.txt; then " \
                 "echo uEnv found - Booting from microsd ...; " \
                 "gpio clear 39;"\
+                "env import -t 0x80600000 ${filesize};" \
+                "boot;" \
+            "fi;" \
+            "echo Trying to find EXT3 "UENV_FILE";" \
+            "if ext4load mmc 0:1 0x80600000  "UENV_FILE"; then " \
+                "echo uEnv found - Booting from microsd ...; " \
                 "env import -t 0x80600000 ${filesize};" \
                 "boot;" \
             "fi;" \

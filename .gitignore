@@ -98,3 +98,4 @@ GTAGS
 
 # spl ais files
 /spl/*.ais
+.idea/*

@@ -86,7 +86,8 @@ int misc_init_r(void)
     printf("Setting Enable SDCARD:\n");
     run_command("gpio set 43",0);
     run_command("gpio clear 48",0);
-    #ifdef CONFIG_BOARD_NAME_XIAOFANG
+
+    #if defined(CONFIG_BOARD_NAME_XIAOFANG128) || defined(CONFIG_BOARD_NAME_XIAOFANG64)
         printf("Sleep one second:\n");
         run_command("sleep 1",0);
         printf("Sleep done:\n");
@@ -134,8 +135,10 @@ int checkboard(void)
 #define BOARD_NAME	"Dafang 64MB"
 #elif defined(CONFIG_BOARD_NAME_DAFANG128)
 #define BOARD_NAME	"Dafang 128MB"
-#elif defined(CONFIG_BOARD_NAME_XIAOFANG)
-#define BOARD_NAME	"Xiaofang 1S"
+#elif defined(CONFIG_BOARD_NAME_XIAOFANG64)
+#define BOARD_NAME	"Xiaofang 1S 64MB"
+#elif defined(CONFIG_BOARD_NAME_XIAOFANG128)
+#define BOARD_NAME	"Xiaofang 1S 128MB"
 #else
 #error "No board variant defined!"
 #endif

@@ -131,14 +131,7 @@ int checkboard(void)
 {
 
 
-#if defined(CONFIG_BOARD_NAME_DAFANG64)
-#define BOARD_NAME	"Dafang 64MB"
-#elif defined(CONFIG_BOARD_NAME_DAFANG128)
-#define BOARD_NAME	"Dafang 128MB"
-#elif defined(CONFIG_BOARD_NAME_XIAOFANG64)
-#define BOARD_NAME	"Xiaofang 1S 64MB"
-#elif defined(CONFIG_BOARD_NAME_XIAOFANG128)
-#define BOARD_NAME	"Xiaofang 1S 128MB"
+#if defined(BOARD_NAME)
 #else
 #error "No board variant defined!"
 #endif

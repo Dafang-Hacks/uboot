@@ -2,10 +2,11 @@
 13085ca851710ac2429e3e95da0d849c  dafang_128mb_v1.bin
 a73bb22bf861d7573712cb1e0abf6a96  md5hashes.md
 d41d8cd98f00b204e9800998ecf8427e  .gitkeep
-9df7a8dcb1f000caa8ddb46165dd111d  Readme.md
+ac1bb8c61ddb35bfd0debfcad5a29da5  Readme.md
+e45c47997981a715af33c03d8e7a0047  xiaofang1s_128mb_v2.bin
 1b3fcafab119afd36bf4270c1d3c4da1  xiaofang1s_64mb_v2.bin
 b5d57b6e1d18e37fae5ed07b0633c7cc  dafang_64mb_v1.bin
 aab52eefe246dc1e15e56b253df3d64f  dafang_128mb_v2.bin
 cfeaa1c21297feb05c31a09cd99ae4ac  sannce_v2.bin
-a159f568c914d4c38506a7be642d488b  sannce_v1.bin
+aab52eefe246dc1e15e56b253df3d64f  sannce_v1.bin
 f1ab0dd300dcf01b7b599299d4ae0243  md5sum.sh

@@ -149,6 +149,14 @@
 #define BOARD_NAME	"Dafang 64MB"
 #define UENV_FILE	"uEnv_dafang64.txt"
 
+#elif defined(CONFIG_BOARD_NAME_XIAOFANG128)
+#define BOARD_NAME	"Xiaofang 128MB"
+#define UENV_FILE	"uEnv_xiaofang128.txt"
+
+#elif defined(CONFIG_BOARD_NAME_XIAOFANG64)
+#define BOARD_NAME	"Xiaofang 64MB"
+#define UENV_FILE	"uEnv_xiaofang64.txt"
+
 #else
 #error "No board variant defined!"
 #endif

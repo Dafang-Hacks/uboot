@@ -157,6 +157,13 @@
 #define BOARD_NAME	"Xiaofang 64MB"
 #define UENV_FILE	"uEnv_xiaofang64.txt"
 
+#elif defined(CONFIG_BOARD_NAME_SANNCE)
+#define BOARD_NAME	"Sannce I141CB 64MB"
+#define UENV_FILE	"uEnv_sannce.txt"
+#define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2048k(kernel),1792k(rootfs),3584k(user),2048k(kernel2),1792k(rootfs2),3584k(user2),1024k(mtd),-(factory)"
+
+
+
 #else
 #error "No board variant defined!"
 #endif

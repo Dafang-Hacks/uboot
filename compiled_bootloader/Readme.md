@@ -10,7 +10,8 @@ Use following Bootloader for your device:
 | Dafang 128Mb |  dafang_128mb_v2.bin     |    aab52eefe246dc1e15e56b253df3d64f |
 | Wyzecam V2 128Mb |  dafang_128mb_v2.bin     |  aab52eefe246dc1e15e56b253df3d64f   |
 | WyzeCam Pan 128Mb|  dafang_128mb_v2.bin     |    aab52eefe246dc1e15e56b253df3d64f |
-| Sannce I21AG 64Mb |  sannce_v2.bin     |    a159f568c914d4c38506a7be642d488b |
+| Sannce I21AG 64Mb |  sannce_i21ag_v2.bin     |    3d45bd04dddedfd21ab3d8923cf2c675 |
+| Sannce I141CB 64Mb |  sannce_i141cb_v2.bin     |    a516da9759220b95e4f0f854b65d976f |
 
 
 

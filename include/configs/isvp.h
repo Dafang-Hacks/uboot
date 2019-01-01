@@ -113,7 +113,7 @@
 
 
 #if defined(CONFIG_BOARD_NAME_SANNCE)
-#define BOARD_NAME	"Sannce I21AG"
+#define BOARD_NAME	"Sannce I21AG 64MB"
 #define UENV_FILE	"uEnv_sannce.txt"
 #define CONFIG_BOOTARGS BOOTARGS_COMMON " init=/linuxrc rootfstype=squashfs root=/dev/mtdblock2 rw mtdparts=jz_sfc:256k(boot),2176k(kernel),3328k(root),2304k(system),64k(factory),64k(param) quiet"
 

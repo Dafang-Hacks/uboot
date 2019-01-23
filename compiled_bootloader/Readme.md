@@ -19,4 +19,4 @@ Use following Bootloader for your device:
 All other Cameras: Please create an issue before flashing a file.
 
 
-### Please do not use WGET to download it to the camera! Github may deliver a HTML-File and this will brick your cam! 
+### NOTE: Beware of using WGET to download it to the camera! Github may deliver a HTML-File and this will brick your cam! Please follow the instructions [here](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks/blob/master/hacks/flashinguboot.md) to use wget safely.

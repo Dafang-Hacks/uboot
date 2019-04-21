@@ -348,6 +348,27 @@ static struct jz_spi_support jz_spi_support_table[] = {
 #endif
 		},
 	},
+	{
+		.name           = "EN25QH128",
+		.id_manufactory = 0x1c7018,
+		.page_size       = 256,
+		.sector_size      = (64 * 1024),
+		.addr_size = 3,
+		.size           = (16 * 1024 * 1024),
+		.quad_mode = {
+			.dummy_byte = 8,
+			.RDSR_CMD = CMD_RDSR_1,
+			.WRSR_CMD = CMD_WRSR_1,
+			.RDSR_DATE = 0x2,//the data is write the spi status register for QE bit
+			.RD_DATE_SIZE = 1,
+			.WRSR_DATE = 0x2,//this bit should be the flash QUAD mode enable
+			.WD_DATE_SIZE = 1,
+			.cmd_read = CMD_QUAD_READ,
+#ifdef CONFIG_JZ_SFC
+			.sfc_mode = TRAN_SPI_QUAD,
+#endif
+		},
+	},
 };
 
 #endif /* __JZ_SPI_H__ */
